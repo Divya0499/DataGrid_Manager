@@ -1,10 +1,10 @@
 import React from 'react';
 import { TableRow, TableCell, IconButton } from '@mui/material';
 import { Edit, Delete, ContentCopy, CheckCircle } from '@mui/icons-material';
-import { DonationEntry } from '../types/formTypes';
+import { FormValues } from '../types/formTypes';
 
 interface TableRowsProps {
-  data: DonationEntry[];
+  data: FormValues[];
   onEdit: (id: string) => void;
   onDelete: (id: string) => void;
   onCopy: (text: string, id: string) => void;

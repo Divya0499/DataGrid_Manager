@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik, Field, Form, FormikHelpers } from "formik";
-import { validationSchema } from "../utils/function.js";
+import { validationSchema } from "../utils/function.ts";
 import {
   Checkbox,
   FormControlLabel,
@@ -33,6 +33,7 @@ const DonationForm: React.FC<DonationFormProps> = ({
   };
 
   const defaultInitialValues: FormValues = {
+    id:"",
     fullName: "",
     email: "",
     phoneNumber: "",
@@ -119,7 +120,7 @@ const DonationForm: React.FC<DonationFormProps> = ({
           {/* Special Instructions Textarea */}
           <div className="formField">
             <Field name="specialInstructions">
-              {({ field, form }: any) => (
+              {({ field }: any) => (
                 <TextareaAutosize
                   {...field}
                   placeholder="Special Instructions"
@@ -152,7 +153,7 @@ const DonationForm: React.FC<DonationFormProps> = ({
 
           {/* Submit Button */}
           <button type="submit" className="submitButton">
-            {formikProps.values?.id ? "Update" : "Submit"}
+            {formikProps?.values?.id ? "Update" : "Submit"}
           </button>
         </Form>
       )}

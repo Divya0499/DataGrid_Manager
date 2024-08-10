@@ -1,14 +1,14 @@
 import React, { useState, useMemo, useCallback } from "react";
 import { Table, TableBody, TableContainer, Paper, TablePagination } from "@mui/material";
-import { DonationEntry } from "../types/formTypes";
 import TableHeaders from './TableHeaders';
 import TableRows from './TableRows';
 import TotalRow from "./TableRow";
 import SearchAndActions from "./SearchAndActions";
+import { FormValues } from "../types/formTypes";
 
 interface DonationDataTableProps {
-  data: DonationEntry[]; // Array of donation entries to display
-  setData: React.Dispatch<React.SetStateAction<DonationEntry[]>>; // Function to update the data
+  data: FormValues[]; // Array of donation entries to display
+  setData: React.Dispatch<React.SetStateAction<FormValues[]>>; // Function to update the data
   onEdit: (id: string) => void; // Function to handle editing an entry
   onAdd: () => void; // Function to handle adding a new entry
 }
@@ -104,7 +104,7 @@ const DonationDataTable: React.FC<DonationDataTableProps> = ({ data, setData, on
           count={filteredData.length} // Total number of entries
           rowsPerPage={rowsPerPage} // Number of rows per page
           page={page} // Current page
-          onPageChange={(event, newPage) => setPage(newPage)} // Change page
+          onPageChange={(__, newPage) => setPage(newPage)} // Change page
           onRowsPerPageChange={(event) => {
             setRowsPerPage(parseInt(event.target.value, 10)); // Update rows per page
             setPage(0); // Reset to first page when rows per page changes

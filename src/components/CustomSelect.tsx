@@ -1,6 +1,7 @@
 import React from 'react';
-import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { FormControl, InputLabel, Select } from '@mui/material';
 import { FieldProps } from 'formik';
+import { getHelperText } from '../utils/function';
 
 const CustomSelect: React.FC<FieldProps & { label: string; children: React.ReactNode }> = ({ field, form, label, children, ...props }) => (
   <FormControl variant="outlined" fullWidth>
@@ -14,7 +15,7 @@ const CustomSelect: React.FC<FieldProps & { label: string; children: React.React
       {children}
     </Select>
     {form.touched[field.name] && form.errors[field.name] && (
-      <div className="errorText">{form.errors[field.name]}</div>
+      <div className="errorText">{ getHelperText(form.errors, field.name)}</div>
     )}
   </FormControl>
 );

@@ -15,3 +15,23 @@ export const validationSchema = Yup.object({
   specialInstructions: Yup.string().required("Required"),
   newsletter: Yup.bool(),
 });
+
+export // Helper function to format the error message
+const getHelperText = (errors: any, fieldName: string): string | undefined => {
+  const error = errors[fieldName];
+  
+  if (Array.isArray(error)) {
+    return error.join(', '); // Join array of errors into a single string
+  }
+  
+  if (typeof error === 'string') {
+    return error;
+  }
+
+  // If error is an object with a message property
+  if (error && typeof error === 'object' && 'message' in error) {
+    return (error as { message?: string }).message;
+  }
+  
+  return undefined;
+};
