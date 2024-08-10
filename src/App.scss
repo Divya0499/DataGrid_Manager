@@ -1,0 +1,21 @@
+.appContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6addec, #9cdca4);
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  h1 {
+    font-family: 'Arial', sans-serif;
+    color: #f6f6f6;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  
+  
+@import url(../src/assets/sass/main.scss);

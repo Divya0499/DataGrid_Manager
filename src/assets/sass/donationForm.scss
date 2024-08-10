@@ -1,0 +1,70 @@
+$form-bg-color: #d7c6a6;
+$border-color: #e0e0e0;
+$button-bg-color: #8ac45e;
+$button-hover-bg-color: #67a84a;
+$gradient-start: #ace8b4;
+$gradient-end: #96dde6;
+$box-shadow-color: rgba(41, 39, 39, 0.15);
+
+.formContainer {
+  background: linear-gradient(135deg, $gradient-start, $gradient-end);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px $box-shadow-color;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 12px 24px $box-shadow-color;
+  }
+}
+
+.formField,
+.formControl {
+  gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.textarea {
+  width: 100%;
+  padding: 12px;
+  min-height: 120px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    border-color: $button-bg-color;
+    outline: none;
+  }
+}
+
+.submitButton {
+  background-color: $button-bg-color;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 4px 8px $box-shadow-color;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: $button-hover-bg-color;
+    box-shadow: 0 6px 12px $box-shadow-color;
+  }
+}
+
+.errorText {
+  color: #ff4d4f;
+  font-size: 13px;
+  margin-top: 5px;
+}
