@@ -16,8 +16,8 @@ export const validationSchema = Yup.object({
   newsletter: Yup.bool(),
 });
 
-export // Helper function to format the error message
-const getHelperText = (errors: any, fieldName: string): string | undefined => {
+ // Helper function to format the error message
+ export const getHelperText = (errors: any, fieldName: string): string | undefined => {
   const error = errors[fieldName];
   
   if (Array.isArray(error)) {

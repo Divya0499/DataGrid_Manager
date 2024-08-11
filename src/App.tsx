@@ -10,7 +10,7 @@ const App: React.FC = () => {
   const [data, setData] = useState<FormValues[]>(donationData);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [showForm, setShowForm] = useState<boolean>(false);
-  console.log(data,"data")
+
   const handleFormSubmit = (values: FormValues) => {
     if (selectedId) {
       setData((prevData) =>
