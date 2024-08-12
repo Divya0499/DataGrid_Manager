@@ -60,7 +60,6 @@ const DonationDataTable: React.FC<DonationDataTableProps> = ({
     setSortDirection((prevDirection) =>
       prevDirection === "ascending" ? "descending" : "ascending"
     ); // Toggle sorting direction
-    toast.success(`Data sorted in ${sortDirection} order`);
 
   }, []);
 
