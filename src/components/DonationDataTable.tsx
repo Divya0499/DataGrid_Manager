@@ -11,6 +11,7 @@ import TableRows from "./TableRows";
 import TotalRow from "./TableRow";
 import SearchAndActions from "./SearchAndActions";
 import { FormValues } from "../types/formTypes";
+import { toast } from "react-toastify";
 
 interface DonationDataTableProps {
   data: FormValues[]; // Array of donation entries to display
@@ -48,6 +49,8 @@ const DonationDataTable: React.FC<DonationDataTableProps> = ({
   const handleDelete = useCallback(
     (id: string) => {
       setData((prevData) => prevData.filter((entry) => entry.id !== id)); // Filter out the deleted entry
+      toast.success("Data deleted successfully");
+
     },
     [setData]
   );
@@ -57,6 +60,8 @@ const DonationDataTable: React.FC<DonationDataTableProps> = ({
     setSortDirection((prevDirection) =>
       prevDirection === "ascending" ? "descending" : "ascending"
     ); // Toggle sorting direction
+    toast.success(`Data sorted in ${sortDirection} order`);
+
   }, []);
 
   // Memoized sorted data based on sort direction

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { toast, ToastContainer } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import "./App.scss";
 import { v4 as uuidv4 } from 'uuid';
 import DonationDataTable from "./components/DonationDataTable";
@@ -18,9 +20,13 @@ const App: React.FC = () => {
           entry?.id === selectedId ? { ...values, id: selectedId } : entry
         )
       );
+      toast.success("Data updated successfully");
+
     } else {
       const newEntry = { ...values, id:uuidv4() };
       setData((prevData) => [...prevData, newEntry]);
+      toast.success("Data added successfully");
+
     }
     setShowForm(false);
     setSelectedId(null);
@@ -56,6 +62,12 @@ const App: React.FC = () => {
           onAdd={handleAdd}
         />
       )}
+       <ToastContainer 
+        theme="colored"
+        autoClose={1000}
+        hideProgressBar={true}
+        closeButton={false}
+        newestOnTop/>
     </div>
   );
 };
